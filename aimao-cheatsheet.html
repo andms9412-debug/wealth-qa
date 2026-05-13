@@ -359,6 +359,11 @@
     section.q div[style*="border:2px solid #d81b60"] th {
       color: #ff80ab !important;
     }
+
+    /* Q9/Q10 子題標題（h3 inline color） */
+    section.q .answer h3[style*="color:#1a1a1a"] {
+      color: #f0f0f0 !important;
+    }
   }
 </style>
 </head>
@@ -566,11 +571,23 @@
   <h2><span class="qid">Q4</span>投資海外商品，只看匯率夠嗎？</h2>
   <span class="answer-label">30 秒答</span>
   <div class="answer">
-    不夠。海外資產的台幣計報酬 = <strong>標的本身漲跌 × 匯率變動</strong>，兩層曝險缺一不可。例如：標的賺 10%、台幣升值 5%，實際台幣計只賺 4.5%。所以光擇時換匯不夠，更重要的是讓美元部位<strong>在持有期間有合理報酬</strong>蓋過匯率波動。建議用<strong>全球型基金做主軸</strong>、配置<strong>美元高 yield 資產</strong>緩衝，搭配適度匯率對沖商品。
+    不夠。海外資產有 <strong>兩層曝險</strong>，缺一不可：
+    <ol style="margin:10px 0; padding-left:22px; line-height:1.85;">
+      <li><strong>匯率變動</strong>（換匯時 + 持有期間台幣升貶值）</li>
+      <li><strong>標的本身漲跌</strong>（你買的美股 / 美債 / 美元基金本身的表現）</li>
+    </ol>
+    <p style="margin:6px 0;"><strong>公式</strong>：台幣計報酬 = <strong>標的漲跌 × 匯率變動</strong></p>
+    <p style="margin:6px 0;">例如：標的賺 10%、台幣升值 5%，實際台幣計只賺 4.5%（不是 5%）。</p>
+    <p style="margin:10px 0 4px;"><strong>所以建議客戶</strong>：</p>
+    <ul style="padding-left:22px; line-height:1.85; margin:0;">
+      <li>用<strong>全球型基金做主軸</strong>（自然分散貨幣）</li>
+      <li>配置<strong>美元高 yield 資產</strong>（短債 / 投等債）緩衝匯率波動</li>
+      <li>必要時搭配<strong>匯率避險商品</strong>（hedged 級別基金）</li>
+    </ul>
   </div>
   <div class="key-num">
     <span class="label">記得住的金句</span>
-    「換匯只是第一步，標的曝險才是長期報酬主力」
+    「換匯只是第一步，<strong>標的曝險</strong>才是長期報酬主力」
   </div>
 </section>
 
@@ -647,11 +664,29 @@
   <h2><span class="qid">Q7</span>1 億資金海外債券 + 匯率疑慮，怎麼推進？</h2>
   <span class="answer-label">30 秒答</span>
   <div class="answer">
-    三層機制管理匯率：第一，<strong>分批換匯</strong>（3-6 個月分 3-4 次）平均成本。第二，<strong>配置高 yield 美元債</strong>，目前 LQD 投資級公司債 SEC yield 約 5.1%、EMB 新興市場債約 5.7%，足以蓋過台幣升值區間。第三，可搭配 <strong>hedged share class</strong> 對沖匯率。配置建議：50% 投資等級公司債 + 30% 美國公債 + 20% 新興市場主權債，預期年化 yield 約 5%，遠勝台幣定存 1.7%。
+    用 <strong>三層機制</strong> 管理匯率疑慮：
+    <ol style="margin:10px 0; padding-left:22px; line-height:1.85;">
+      <li><strong>分批換匯</strong>：3-6 個月內分 3-4 次換匯，平均成本、降低單點時機風險</li>
+      <li><strong>配置高收益美元債</strong>，目前殖利率水位
+        <ul style="margin:4px 0; padding-left:20px;">
+          <li>美國投資級公司債約 <strong>5.1%</strong></li>
+          <li>新興市場美元主權債約 <strong>5.7%</strong></li>
+          <li>高 yield 足以蓋過台幣升值區間</li>
+        </ul>
+      </li>
+      <li><strong>搭配匯率避險版本</strong>：部分配置「hedged 級別」基金，台幣計價對沖匯率</li>
+    </ol>
+    <p style="margin:10px 0 4px;"><strong>配置建議</strong>（1 億規模）：</p>
+    <ul style="padding-left:22px; line-height:1.85; margin:0;">
+      <li>50% 投資等級公司債</li>
+      <li>30% 美國公債（10 年期）</li>
+      <li>20% 新興市場主權債</li>
+    </ul>
+    <p style="margin:8px 0 0;"><strong>預期年化 yield 約 5%</strong>，遠勝台幣 1 年定存 1.7%、美元 1 年定存 1.8%。1 億放 2 年差距約 <strong>600-800 萬</strong>。</p>
   </div>
   <div class="key-num">
     <span class="label">記得住的數字</span>
-    LQD <strong>5.1%</strong> / EMB <strong>5.7%</strong> / 配置 <strong>50/30/20</strong>
+    投資級債 <strong>5.1%</strong> / 新興市場債 <strong>5.7%</strong> / 配置 <strong>50/30/20</strong>
   </div>
 </section>
 
@@ -660,11 +695,17 @@
   <h2><span class="qid">Q8</span>FCN 賣給套牢科技股 PI 客戶，怎麼切入？</h2>
   <span class="answer-label">30 秒答</span>
   <div class="answer">
-    「<strong>領息或獲利皆可</strong>」是關鍵切入點。FCN 的三種情境都對客戶有利：第一，科技股盤整或上漲 → <strong>每月領 1.5-2% 配息</strong>、年化 18% 以上；第二，下跌但沒跌破敲入價（通常 -25% 到 -30%）→ 照領息，等於用穩定現金流換波動；第三，跌破敲入 → 以<strong>約定執行價承接</strong>客戶本來就想買的標的，相當於<strong>用打折價買進</strong>。最壞情境是「以更便宜的價格買到看好的標的」。
+    用 <strong>「領息或獲利皆可」</strong> 切入。FCN 的三種情境都對客戶有利：
+    <ol style="margin:10px 0; padding-left:22px; line-height:1.85;">
+      <li><strong>科技股盤整或上漲</strong> → 每月領 <strong>1.5-2% 配息</strong>、年化 18% 以上</li>
+      <li><strong>下跌但沒跌破敲入價</strong>（通常 -25% 到 -30%）→ 照領息，等於用穩定現金流換波動</li>
+      <li><strong>跌破敲入</strong> → 以<strong>約定執行價承接</strong>客戶本來就想買的標的，相當於<strong>用打折價買進</strong></li>
+    </ol>
+    <p style="margin:10px 0 0;"><strong>核心話術</strong>：「最壞情境是<strong>用更便宜的價格買到您本來就看好的標的</strong>，而且過程中還領了好幾個月高息。」</p>
   </div>
   <div class="key-num">
     <span class="label">記得住的賣點</span>
-    每月配息 <strong>1.5-2%</strong> / 敲入價 <strong>-25% 到 -30%</strong> / 「最壞情境是以折價承接看好標的」
+    月配 <strong>1.5-2%</strong> / 敲入價 <strong>-25% 到 -30%</strong> / 「折價承接看好標的」
   </div>
 </section>
 
@@ -673,8 +714,18 @@
   <h2><span class="qid">Q9</span>市場創新高，客戶擔心追高？配不配息怎麼選？</h2>
   <span class="answer-label">30 秒答</span>
   <div class="answer">
-    <strong>創新高 ≠ 末升段</strong>，S&amp;P 500 過去 100 年有超過 1,100 次創新高，<strong>隨後 1 年正報酬機率超過 70%、平均 8-10%</strong>。建議<strong>定期定額</strong>化解擇時焦慮、把單筆切成 12 個月每月進場。<br><br>
-    <strong>配息型優於累積型</strong>，理由有三：每月現金流可感受、客戶穩定度高不會恐慌贖回；強迫部分獲利了結；退休族剛性現金流需求 match。
+    （兩個子題分開答）
+    <h3 style="font-size:15.5px; margin:12px 0 8px; color:#1a1a1a;">子題 A：創新高還能不能進場？</h3>
+    <p style="margin-bottom:8px;"><strong>創新高 ≠ 末升段</strong>：S&amp;P 500 過去 100 年超過 1,100 次創新高，<strong>隨後 1 年正報酬機率 &gt;70%、平均 +8-10%</strong>。</p>
+    <p style="margin-bottom:0;"><strong>建議客戶用「定期定額」化解擇時焦慮</strong>：把單筆切成 12 個月每月進場，<strong>平均成本 + 紀律執行</strong>，避免擇時錯誤。</p>
+
+    <h3 style="font-size:15.5px; margin:14px 0 8px; color:#1a1a1a;">子題 B：配息型 vs 累積型怎麼選？</h3>
+    <p style="margin-bottom:6px;"><strong>配息型優於累積型</strong>，三個理由：</p>
+    <ol style="margin:4px 0 0; padding-left:22px; line-height:1.85;">
+      <li><strong>每月現金流可感受</strong> → 客戶穩定度高、不會回檔時恐慌贖回</li>
+      <li><strong>強迫部分獲利了結</strong> → 沒有「累積到頂點才砍倉」的悔恨感</li>
+      <li><strong>退休族剛性現金流需求</strong> → 直接 match 生活費</li>
+    </ol>
   </div>
   <div class="key-num">
     <span class="label">記得住的數字</span>
@@ -687,11 +738,30 @@
   <h2><span class="qid">Q10</span>創高 + 貪婪指數高，怎麼說服全倉股票客戶配債券？</h2>
   <span class="answer-label">30 秒答</span>
   <div class="answer">
-    先用情緒指標切入：<strong>目前恐懼貪婪指數約 70-76</strong>（已進入貪婪到極度貪婪），這是過去 10 年只出現過 5 次的訊號。再用 60/40 數據：諾貝爾獎理論基礎、<strong>過去 50 年年化 8-9%、最大回撤 -30%</strong>（vs 100% 股票最大回撤 -55%）。建議：<strong>100% 股票調整為 70/30</strong>（不必一次到 60/40），30% 配置裡可分全球投等債 + 美元高收益債 + REITs。
+    （三步說服流程）
+    <h3 style="font-size:15.5px; margin:12px 0 8px; color:#1a1a1a;">Step 1：用情緒指標切入</h3>
+    <p style="margin-bottom:0;"><strong>目前 CNN 恐懼貪婪指數約 70-76</strong>（已進入「貪婪」到「極度貪婪」區間），這是過去 10 年只出現過 5 次的訊號 → <strong>不是加碼時機，而是部分獲利了結時機</strong>。</p>
+
+    <h3 style="font-size:15.5px; margin:14px 0 8px; color:#1a1a1a;">Step 2：用 60/40 歷史數據說服</h3>
+    <ul style="margin:0; padding-left:22px; line-height:1.85;">
+      <li>諾貝爾獎理論基礎（Markowitz 現代投資組合理論）</li>
+      <li><strong>過去 50 年 60/40 年化 8-9%、最大回撤 -30%</strong></li>
+      <li>vs 100% 股票最大回撤 <strong>-55%</strong></li>
+      <li>重點：<strong>犧牲 1-2% 報酬，換 25 個百分點的回撤保護</strong></li>
+    </ul>
+
+    <h3 style="font-size:15.5px; margin:14px 0 8px; color:#1a1a1a;">Step 3：建議具體調整路徑</h3>
+    <p style="margin-bottom:6px;"><strong>100% 股票 → 70/30</strong>（不必一次到 60/40，降低心理摩擦）</p>
+    <p style="margin-bottom:6px;">30% 配置可分三塊：</p>
+    <ul style="margin:0; padding-left:22px; line-height:1.85;">
+      <li>全球投資級債</li>
+      <li>美元高收益債</li>
+      <li>REITs（不動產 ETF）</li>
+    </ul>
   </div>
   <div class="key-num">
     <span class="label">記得住的數字</span>
-    F&amp;G <strong>70-76 貪婪區間</strong>、60/40 過去 50 年年化 <strong>8-9%</strong>、路徑 100/0 → 70/30
+    F&amp;G <strong>70-76 貪婪區間</strong> / 60/40 年化 <strong>8-9%</strong> / 路徑 <strong>100% → 70/30</strong>
   </div>
 </section>
 
