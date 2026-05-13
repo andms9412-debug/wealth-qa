@@ -72,6 +72,14 @@
 - [Vanguard: Global 60/40 portfolio steady as it goes](https://corporate.vanguard.com/content/corporatesite/us/en/corp/articles/global-60-40-portfolio-steady-as-it-goes.html) — **全球 60/40 在 2022 年下跌約 16%**
 - [Yahoo VBIAX](https://finance.yahoo.com/quote/VBIAX/performance/) — Vanguard Balanced Index Fund 2022 = -16.90%
 
+## 三信實際代銷商品（5/13 補充）
+
+- **三信分紅保險商品列表**：[cotabank.com.tw/insu/Class/254/1528](https://www.cotabank.com.tw/insu/Class/254/1528) — 22 檔分紅型外幣終身壽險
+- 子頁面用 JS 動態載入，WebFetch 抓不到具體條款。要查詳細需手動點開或調 PDF
+- **題目「美事傳富 / 祿得利」對應推測**：
+  - 美事傳富 ≈ 美鴻添富（新光）/ 美愛相傳 / 美耀相傳 / 美承相傳（保誠）等「傳承類」
+  - 祿得利 ≈ 福祿滿利 / 樂利雙收（保誠）等「配息/利得類」
+
 ## 知識缺口（這次沒查到）
 
 - 美事傳富 / 祿得利 兩個保單的具體商品條款（三信代銷，公開資料極少）
