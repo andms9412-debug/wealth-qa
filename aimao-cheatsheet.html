@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>阿毛理專月會救命卡 | wealth-qa</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    background: #fafaf7;
+    color: #1a1a1a;
+    line-height: 1.75;
+    padding: 0 16px 80px;
+    max-width: 760px;
+    margin: 0 auto;
+    font-size: 17px;
+  }
+
+  /* ===== Header ===== */
+  header {
+    padding: 24px 0 12px;
+    text-align: center;
+    border-bottom: 2px solid #1a1a1a;
+    margin-bottom: 24px;
+  }
+  header h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; }
+  header .sub { font-size: 14px; color: #666; margin-top: 6px; }
+
+  /* ===== TOC / Quick Nav ===== */
+  nav.toc {
+    position: sticky;
+    top: 0;
+    background: #fafaf7;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+    margin: 0 -16px 24px;
+    padding-left: 16px;
+    padding-right: 16px;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  nav.toc .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 13px;
+  }
+  nav.toc a {
+    display: inline-block;
+    padding: 6px 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 600;
+    min-width: 40px;
+    text-align: center;
+  }
+  nav.toc a.special {
+    background: #fff3cd;
+    border-color: #f5c542;
+  }
+
+  /* ===== Usage note ===== */
+  .usage {
+    background: #e8f4fd;
+    border-left: 4px solid #2196F3;
+    padding: 14px 18px;
+    margin-bottom: 28px;
+    border-radius: 0 8px 8px 0;
+    font-size: 15px;
+  }
+  .usage strong { color: #0d47a1; }
+
+  /* ===== Summary Table (Top) ===== */
+  .summary-top {
+    background: #fff3cd;
+    border: 2px solid #f5c542;
+    border-radius: 12px;
+    padding: 18px 16px;
+    margin-bottom: 32px;
+  }
+  .summary-top h2 {
+    font-size: 18px;
+    margin-bottom: 14px;
+    color: #6d4c00;
+  }
+  .summary-top table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  .summary-top td { padding: 8px 6px; border-bottom: 1px solid #f5c542; }
+  .summary-top td:first-child { font-weight: 700; width: 38px; color: #6d4c00; }
+  .summary-top tr:last-child td { border-bottom: none; }
+  .summary-top .num { color: #b71c1c; font-weight: 700; }
+
+  /* ===== Question Card ===== */
+  section.q {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 20px 18px;
+    margin-bottom: 22px;
+    scroll-margin-top: 80px;
+  }
+  section.q h2 {
+    font-size: 19px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 14px;
+    line-height: 1.4;
+  }
+  section.q h2 .qid {
+    display: inline-block;
+    background: #1a1a1a;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-right: 8px;
+    vertical-align: 2px;
+  }
+
+  .answer-label {
+    display: inline-block;
+    background: #43a047;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+  .answer {
+    background: #f1f8f4;
+    border-left: 4px solid #43a047;
+    padding: 14px 16px;
+    border-radius: 0 8px 8px 0;
+    font-size: 16px;
+    line-height: 1.85;
+    margin-bottom: 14px;
+  }
+  .answer strong {
+    background: #fff59d;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-weight: 700;
+  }
+
+  .key-num {
+    background: #fce4ec;
+    border-left: 4px solid #d81b60;
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    font-size: 14.5px;
+  }
+  .key-num .label {
+    font-weight: 700;
+    color: #880e4f;
+    display: block;
+    margin-bottom: 2px;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  /* ===== Safety Section ===== */
+  .safety {
+    background: #fff;
+    border: 2px solid #d32f2f;
+    border-radius: 12px;
+    padding: 20px 18px;
+    margin: 32px 0 22px;
+  }
+  .safety h2 {
+    color: #b71c1c;
+    font-size: 19px;
+    margin-bottom: 12px;
+  }
+  .safety .item {
+    padding: 10px 0;
+    border-bottom: 1px dashed #ffcdd2;
+  }
+  .safety .item:last-child { border-bottom: none; }
+  .safety .item .q-label {
+    display: inline-block;
+    font-weight: 700;
+    color: #b71c1c;
+    margin-bottom: 4px;
+  }
+  .safety .item .ans {
+    margin-left: 0;
+    color: #333;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .donts {
+    background: #fff;
+    border: 2px solid #ef6c00;
+    border-radius: 12px;
+    padding: 20px 18px;
+    margin-bottom: 22px;
+  }
+  .donts h2 {
+    color: #e65100;
+    font-size: 19px;
+    margin-bottom: 12px;
+  }
+  .donts ol { padding-left: 22px; }
+  .donts ol li {
+    margin-bottom: 10px;
+    line-height: 1.7;
+    color: #333;
+  }
+  .donts strong { color: #e65100; }
+
+  /* ===== Footer ===== */
+  footer {
+    text-align: center;
+    padding: 24px 0;
+    color: #666;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+    margin-top: 32px;
+  }
+  footer .blessing {
+    font-size: 17px;
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  /* ===== Print ===== */
+  @media print {
+    nav.toc { position: static; box-shadow: none; }
+    body { padding: 16px; max-width: 100%; font-size: 12pt; }
+    section.q { break-inside: avoid; page-break-inside: avoid; }
+    .safety, .donts { break-inside: avoid; }
+  }
+
+  /* ===== Dark mode ===== */
+  @media (prefers-color-scheme: dark) {
+    body { background: #1a1a1a; color: #e8e8e8; }
+    header { border-bottom-color: #e8e8e8; }
+    header .sub { color: #aaa; }
+    nav.toc { background: #1a1a1a; border-bottom-color: #444; }
+    nav.toc a { background: #2a2a2a; border-color: #444; color: #e8e8e8; }
+    nav.toc a.special { background: #5a4a00; border-color: #f5c542; color: #fff3cd; }
+    .usage { background: #0d2438; color: #cde6f7; }
+    .usage strong { color: #90caf9; }
+    .summary-top { background: #2a2300; border-color: #6d5500; }
+    .summary-top h2 { color: #ffd54f; }
+    .summary-top td { border-bottom-color: #5a4800; color: #f0e0a0; }
+    .summary-top td:first-child { color: #ffd54f; }
+    .summary-top .num { color: #ff8a80; }
+    section.q { background: #2a2a2a; border-color: #444; }
+    section.q h2 { color: #f0f0f0; }
+    .answer { background: #1f3a25; border-left-color: #66bb6a; color: #d7f0d8; }
+    .answer strong { background: #6d5500; color: #fff; }
+    .key-num { background: #3d1a2a; border-left-color: #ec407a; color: #f8bbd0; }
+    .key-num .label { color: #f48fb1; }
+    .safety { background: #2a2a2a; border-color: #ef5350; }
+    .safety h2 { color: #ef9a9a; }
+    .safety .item { border-bottom-color: #5a2a2a; }
+    .safety .item .q-label { color: #ef9a9a; }
+    .safety .item .ans { color: #d0d0d0; }
+    .donts { background: #2a2a2a; border-color: #fb8c00; }
+    .donts h2 { color: #ffb74d; }
+    .donts ol li { color: #d0d0d0; }
+    .donts strong { color: #ffb74d; }
+    footer { color: #aaa; border-top-color: #444; }
+    footer .blessing { color: #f0f0f0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>阿毛理專月會救命卡</h1>
+  <div class="sub">10 題 30 秒答案版 · 三信 5/6 演練題</div>
+</header>
+
+<nav class="toc">
+  <div class="links">
+    <a href="#summary" class="special">數字表</a>
+    <a href="#q1">Q1</a>
+    <a href="#q2">Q2</a>
+    <a href="#q3">Q3</a>
+    <a href="#q4">Q4</a>
+    <a href="#q5">Q5</a>
+    <a href="#q6">Q6</a>
+    <a href="#q7">Q7</a>
+    <a href="#q8">Q8</a>
+    <a href="#q9">Q9</a>
+    <a href="#q10">Q10</a>
+    <a href="#safety" class="special">避答</a>
+    <a href="#donts" class="special">禁忌</a>
+  </div>
+</nav>
+
+<div class="usage">
+  <strong>使用方式</strong><br>
+  明天會議被點到時，每題 30 秒到 1 分鐘可以講完。<br>
+  不是要顯得超專業（會穿幫），是要「<strong>順順講完、不出錯、有 1-2 個數字撐場面</strong>」。
+</div>
+
+<!-- ===== Summary Table ===== -->
+<section id="summary" class="summary-top">
+  <h2>背完只要記這 10 個數字</h2>
+  <table>
+    <tr><td>Q1</td><td>MSCI EM forward P/E <span class="num">12</span> vs S&amp;P 500 <span class="num">21</span></td></tr>
+    <tr><td>Q2</td><td>短債 yield <span class="num">3.5%</span> vs 美元定存 <span class="num">1.8%</span></td></tr>
+    <tr><td>Q3</td><td>台積電 0050 權重 <span class="num">60.68%</span></td></tr>
+    <tr><td>Q4</td><td>報酬 = 標的 × 匯率（連乘不是減法）</td></tr>
+    <tr><td>Q5</td><td>美事傳富 50-65 歲家庭 / 祿得利 55-75 歲退休族</td></tr>
+    <tr><td>Q6</td><td>開場 = 痛點 + 數字 + 5 分鐘行動</td></tr>
+    <tr><td>Q7</td><td>LQD <span class="num">5.1%</span> / EMB <span class="num">5.7%</span> / 配置 <span class="num">50/30/20</span></td></tr>
+    <tr><td>Q8</td><td>FCN 月配 <span class="num">1.5-2%</span> / 敲入價 <span class="num">-25% 到 -30%</span></td></tr>
+    <tr><td>Q9</td><td>創新高後 1 年正報酬 <span class="num">&gt;70%</span> / 平均 <span class="num">+8-10%</span></td></tr>
+    <tr><td>Q10</td><td>F&amp;G <span class="num">70-76</span> / 60/40 年化 <span class="num">8-9%</span></td></tr>
+  </table>
+</section>
+
+<!-- ===== Q1 ===== -->
+<section id="q1" class="q">
+  <h2><span class="qid">Q1</span>新興市場目前的投資誘因亮點？</h2>
+  <span class="answer-label">30 秒答</span>
+  <div class="answer">
+    三個亮點：第一，估值便宜，MSCI 新興市場 forward P/E <strong>約 12 倍</strong>，相對 S&amp;P 500 的 21 倍折讓接近 4 成。第二，<strong>台灣已超越中國成為 MSCI 新興市場最大權重</strong>（24.84%），AI 半導體題材帶動。第三，印度、墨西哥承接供應鏈轉移有中長期結構性紅利。
+  </div>
+  <div class="key-num">
+    <span class="label">記得住的數字</span>
+    MSCI EM forward P/E <strong>12 倍</strong> vs S&amp;P 500 <strong>21 倍</strong>
+  </div>
+</section>
+
+<!-- ===== Q2 ===== -->
+<section id="q2" class="q">
+  <h2><span class="qid">Q2</span>美元短債適合什麼樣的客戶？</h2>
+  <span class="answer-label">30 秒答</span>
+  <div class="answer">
+    三類：第一，<strong>已經有美元部位</strong>、不想頻繁換匯的客戶，目前 SGOV 類短債 ETF 30-day SEC yield 約 3.5%，比美元活儲高很多。第二，<strong>追求穩定現金流</strong>的退休族，每月或每季配息。第三，<strong>避險型配置</strong>客戶，做為股市部位的緩衝。比起台灣銀行美元 1 年期定存 1.8%，短債 ETF 還有額外 1.7 個百分點優勢。
+  </div>
+  <div class="key-num">
+    <span class="label">記得住的數字</span>
+    短債 yield <strong>約 3.5%</strong> vs 美元定存 <strong>1.8%</strong>
+  </div>
+</section>
+
+<!-- ===== Q3 ===== -->
+<section id="q3" class="q">
+  <h2><span class="qid">Q3</span>台股 All-in 算穩健嗎？</h2>
+  <span class="answer-label">30 秒答</span>
+  <div class="answer">
+    不算穩健。三個風險：第一，<strong>集中度極高</strong>，台積電在 0050 的權重 60.68%、在台灣總市值占比 44-45%，買 0050 等於一半押台積電。第二，<strong>估值偏高</strong>，MSCI Taiwan P/E 30 倍、forward P/E 21 倍，遠高於歷史均值。第三，<strong>單一市場週期風險</strong>，台股歷史回檔曾達 -46%。建議客戶<strong>保留 20-30% 配置全球型基金或美元短債</strong>做避震，不是完全 all-in。
+  </div>
+  <div class="key-num">
+    <span class="label">記得住的數字</span>
+    台積電 0050 權重 <strong>60.68%</strong>、台股總市值占比 <strong>44-45%</strong>
+  </div>
+</section>
+
+<!-- ===== Q4 ===== -->
+<section id="q4" class="q">
+  <h2><span class="qid">Q4</span>投資海外商品，只看匯率夠嗎？</h2>
+  <span class="answer-label">30 秒答</span>
+  <div class="answer">
+    不夠。海外資產的台幣計報酬 = <strong>標的本身漲跌 × 匯率變動</strong>，兩層曝險缺一不可。例如：標的賺 10%、台幣升值 5%，實際台幣計只賺 4.5%。所以光擇時換匯不夠，更重要的是讓美元部位<strong>在持有期間有合理報酬</strong>蓋過匯率波動。建議用<strong>全球型基金做主軸</strong>、配置<strong>美元高 yield 資產</strong>緩衝，搭配適度匯率對沖商品。
+  </div>
+  <div class="key-num">
+    <span class="label">記得住的金句</span>
+    「換匯只是第一步，標的曝險才是長期報酬主力」
+  </div>
+</section>
+
+<!-- ===== Q5 ===== -->
+<section id="q5" class="q">
+  <h2><span class="qid">Q5</span>美事傳富 + 祿得利 優先鎖定哪類客戶？</h2>
+  <span class="answer-label">30 秒答</span>
+  <div class="answer">
+    <strong>美事傳富鎖定資產傳承思考期的客戶</strong>：50-65 歲、累積資產 3,000 萬以上、有 1-3 名子女的高資產家庭。他們已經進入身後事規劃階段，對「保險金不計入遺產稅」這個機制有真實需求。<strong>祿得利鎖定退休族</strong>：55-75 歲、追求穩定現金流，對台幣定存 1.7% 不滿意但又不敢買股票，美元保單宣告利率 4% 以上對他們吸引力很強。
+  </div>
+  <div class="key-num">
+    <span class="label">記得住的關鍵字</span>
+    傳富 = 傳承（50-65 歲家庭）／祿得利 = 退休現金流（55-75 歲）
+  </div>
+</section>
+
+<!-- ===== Q6 ===== -->
+<section id="q6" class="q">
+  <h2><span class="qid">Q6</span>美事傳富 + 祿得利 一句話開場？</h2>
+  <span class="answer-label">30 秒答</span>
+  <div class="answer">
+    <strong>美事傳富開場</strong>：「如果今天你突然不在，你想留給孩子的，是『稅後的 70%』還是『完整的 100%』？」直擊<strong>父母身分認同 + 損失規避</strong>。<br><br>
+    <strong>祿得利開場</strong>：「你的錢放定存利率 1.7%，但每年生活費上漲 2%，你算過嗎，你的錢其實每年都在縮水。」用<strong>通膨損失感</strong>對比，再帶入美元保單宣告利率 4% 以上的對照。
+  </div>
+  <div class="key-num">
+    <span class="label">記得住的開場結構</span>
+    痛點觸發 + 數字錨點 + 行動門檻降低（「5 分鐘幫你算」）
+  </div>
+</section>
+
+<!-- ===== Q7 ===== -->
+<section id="q7" class="q">
+  <h2><span class="qid">Q7</span>1 億資金海外債券 + 匯率疑慮，怎麼推進？</h2>
+  <span class="answer-label">30 秒答</span>
+  <div class="answer">
+    三層機制管理匯率：第一，<strong>分批換匯</strong>（3-6 個月分 3-4 次）平均成本。第二，<strong>配置高 yield 美元債</strong>，目前 LQD 投資級公司債 SEC yield 約 5.1%、EMB 新興市場債約 5.7%，足以蓋過台幣升值區間。第三，可搭配 <strong>hedged share class</strong> 對沖匯率。配置建議：50% 投資等級公司債 + 30% 美國公債 + 20% 新興市場主權債，預期年化 yield 約 5%，遠勝台幣定存 1.7%。
+  </div>
+  <div class="key-num">
+    <span class="label">記得住的數字</span>
+    LQD <strong>5.1%</strong> / EMB <strong>5.7%</strong> / 配置 <strong>50/30/20</strong>
+  </div>
+</section>
+
+<!-- ===== Q8 ===== -->
+<section id="q8" class="q">
+  <h2><span class="qid">Q8</span>FCN 賣給套牢科技股 PI 客戶，怎麼切入？</h2>
+  <span class="answer-label">30 秒答</span>
+  <div class="answer">
+    「<strong>領息或獲利皆可</strong>」是關鍵切入點。FCN 的三種情境都對客戶有利：第一，科技股盤整或上漲 → <strong>每月領 1.5-2% 配息</strong>、年化 18% 以上；第二，下跌但沒跌破敲入價（通常 -25% 到 -30%）→ 照領息，等於用穩定現金流換波動；第三，跌破敲入 → 以<strong>約定執行價承接</strong>客戶本來就想買的標的，相當於<strong>用打折價買進</strong>。最壞情境是「以更便宜的價格買到看好的標的」。
+  </div>
+  <div class="key-num">
+    <span class="label">記得住的賣點</span>
+    每月配息 <strong>1.5-2%</strong> / 敲入價 <strong>-25% 到 -30%</strong> / 「最壞情境是以折價承接看好標的」
+  </div>
+</section>
+
+<!-- ===== Q9 ===== -->
+<section id="q9" class="q">
+  <h2><span class="qid">Q9</span>市場創新高，客戶擔心追高？配不配息怎麼選？</h2>
+  <span class="answer-label">30 秒答</span>
+  <div class="answer">
+    <strong>創新高 ≠ 末升段</strong>，S&amp;P 500 過去 100 年有超過 1,100 次創新高，<strong>隨後 1 年正報酬機率超過 70%、平均 8-10%</strong>。建議<strong>定期定額</strong>化解擇時焦慮、把單筆切成 12 個月每月進場。<br><br>
+    <strong>配息型優於累積型</strong>，理由有三：每月現金流可感受、客戶穩定度高不會恐慌贖回；強迫部分獲利了結；退休族剛性現金流需求 match。
+  </div>
+  <div class="key-num">
+    <span class="label">記得住的數字</span>
+    創新高後 1 年正報酬機率 <strong>&gt;70%、平均 +8-10%</strong>
+  </div>
+</section>
+
+<!-- ===== Q10 ===== -->
+<section id="q10" class="q">
+  <h2><span class="qid">Q10</span>創高 + 貪婪指數高，怎麼說服全倉股票客戶配債券？</h2>
+  <span class="answer-label">30 秒答</span>
+  <div class="answer">
+    先用情緒指標切入：<strong>目前恐懼貪婪指數約 70-76</strong>（已進入貪婪到極度貪婪），這是過去 10 年只出現過 5 次的訊號。再用 60/40 數據：諾貝爾獎理論基礎、<strong>過去 50 年年化 8-9%、最大回撤 -30%</strong>（vs 100% 股票最大回撤 -55%）。建議：<strong>100% 股票調整為 70/30</strong>（不必一次到 60/40），30% 配置裡可分全球投等債 + 美元高收益債 + REITs。
+  </div>
+  <div class="key-num">
+    <span class="label">記得住的數字</span>
+    F&amp;G <strong>70-76 貪婪區間</strong>、60/40 過去 50 年年化 <strong>8-9%</strong>、路徑 100/0 → 70/30
+  </div>
+</section>
+
+<!-- ===== Safety / 避答 ===== -->
+<section id="safety" class="safety">
+  <h2>不確定的東西怎麼答（避免穿幫）</h2>
+  <div class="item">
+    <span class="q-label">被問「美事傳富宣告利率多少」</span>
+    <div class="ans">「目前我們這檔約 <strong>4.0-4.15%</strong> 區間，實際 IRR 6 年期估算 3.3-3.5%，要看客戶繳費年期試算」</div>
+  </div>
+  <div class="item">
+    <span class="q-label">被問「為什麼推這檔不推那檔」</span>
+    <div class="ans">「主要還是看客戶需求 fit，每位客戶 persona 不同會推不同方案」（萬用回答）</div>
+  </div>
+  <div class="item">
+    <span class="q-label">完全答不出來時</span>
+    <div class="ans">「這部分我會後再幫您整理完整資料」（不要硬掰）</div>
+  </div>
+</section>
+
+<!-- ===== Don'ts / 禁忌 ===== -->
+<section id="donts" class="donts">
+  <h2>不要做的事</h2>
+  <ol>
+    <li><strong>不要講 lump sum vs DCA 學術研究</strong>（細節太多會穿幫）</li>
+    <li><strong>不要主動提「Vanguard 研究顯示」</strong>（萬一被追問就完了）</li>
+    <li><strong>不要強調精確百分比</strong>（區間表達比較安全：「約 X」「大概 X-Y 區間」）</li>
+    <li><strong>不要長篇大論</strong>：每題 1-2 分鐘內結束，主管要的是「有功課」不是「博士論文」</li>
+  </ol>
+</section>
+
+<footer>
+  <div class="blessing">祝阿毛明天順利。</div>
+  <div>wealth-qa · 2026-05-13</div>
+</footer>
+
+</body>
+</html>

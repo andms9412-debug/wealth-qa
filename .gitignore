@@ -1,0 +1,14 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# Personal notes / drafts (if any added later)
+draft/
+private/
+*.local.md
