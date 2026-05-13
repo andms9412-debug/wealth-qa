@@ -271,6 +271,94 @@
     .donts strong { color: #ffb74d; }
     footer { color: #aaa; border-top-color: #444; }
     footer .blessing { color: #f0f0f0; }
+
+    /* === inline-style box dark mode overrides === */
+
+    /* 綠底 box: 商品確認、Q1 Top 4 */
+    section.q div[style*="background:#e8f5e9"],
+    section.q[style*="background:#e8f5e9"],
+    section.q div[style*="background:#f1f8f4"] {
+      background: #1f3a25 !important;
+      border-color: #43a047 !important;
+    }
+    section.q div[style*="background:#e8f5e9"] p,
+    section.q div[style*="background:#e8f5e9"] li,
+    section.q div[style*="background:#e8f5e9"] td,
+    section.q[style*="background:#e8f5e9"] p,
+    section.q[style*="background:#e8f5e9"] li,
+    section.q div[style*="background:#f1f8f4"] p,
+    section.q div[style*="background:#f1f8f4"] li,
+    section.q div[style*="background:#f1f8f4"] {
+      color: #d7f0d8 !important;
+    }
+    section.q div[style*="background:#e8f5e9"] strong,
+    section.q[style*="background:#e8f5e9"] strong,
+    section.q div[style*="background:#f1f8f4"] strong {
+      color: #a5d6a7 !important;
+    }
+    section.q div[style*="background:#e8f5e9"] p[style*="color:#1b5e20"],
+    section.q[style*="background:#e8f5e9"] h2[style*="color:#1b5e20"],
+    section.q div[style*="background:#f1f8f4"] strong[style*="color:#1b5e20"] {
+      color: #81c784 !important;
+    }
+    section.q[style*="background:#e8f5e9"] td[style*="color:#b71c1c"] strong {
+      color: #ff8a80 !important;
+    }
+
+    /* Q1 Top 4 / 商品確認的綠色 table header（綠底白字保留） */
+    section.q tr[style*="background:#43a047"] {
+      background: #2e7d32 !important;
+    }
+
+    /* 淺綠 list separator */
+    section.q tr[style*="border-bottom:1px solid #a5d6a7"] {
+      border-bottom-color: #43a047 !important;
+    }
+
+    /* 黃底 box: Q1 narrative */
+    section.q div[style*="background:#fff3cd"] {
+      background: #3d2f00 !important;
+      border-color: #f5c542 !important;
+    }
+    section.q div[style*="background:#fff3cd"] p {
+      color: #fff3cd !important;
+    }
+    section.q div[style*="background:#fff3cd"] strong {
+      color: #ffd54f !important;
+    }
+    section.q div[style*="background:#fff3cd"] p[style*="color:#6d4c00"] {
+      color: #ffd54f !important;
+    }
+
+    /* 粉紅底 box: Q3 ETF 上限、Q5/Q6 萬用句型 */
+    section.q div[style*="border:2px solid #d81b60"] {
+      background: #2a1620 !important;
+      border-color: #ec407a !important;
+    }
+    section.q div[style*="border:2px solid #d81b60"] p {
+      color: #f8bbd0 !important;
+    }
+    section.q div[style*="border:2px solid #d81b60"] strong {
+      color: #ff80ab !important;
+    }
+    section.q div[style*="border:2px solid #d81b60"] p[style*="color:#880e4f"] {
+      color: #f48fb1 !important;
+    }
+    section.q div[style*="border:2px solid #d81b60"] tr[style*="background:#fce4ec"] {
+      background: #4a1f30 !important;
+    }
+    section.q div[style*="border:2px solid #d81b60"] tr[style*="background:#fff3e0"] {
+      background: #3d2a14 !important;
+    }
+    section.q div[style*="border:2px solid #d81b60"] tr[style*="border-bottom:1px solid #f8bbd0"] {
+      border-bottom-color: #6d3045 !important;
+    }
+    section.q div[style*="border:2px solid #d81b60"] td {
+      color: #f8bbd0 !important;
+    }
+    section.q div[style*="border:2px solid #d81b60"] th {
+      color: #ff80ab !important;
+    }
   }
 </style>
 </head>
