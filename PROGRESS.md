@@ -41,6 +41,12 @@
 | 17:40 | Q2-Q10 全部白話化 | 每題雙語版（白話主版 + 聽眾想聽專業版紅框）|
 | 17:45 | 字眼通用化 | 「阿毛 → 讀者」、「主管 → 聽眾」、檔名 aimao-cheatsheet 不變 |
 
+### 2026-05-14
+
+| 時間 | Milestone | 備註 |
+|---|---|---|
+| 08:36 | **[VIOLATION] fresh session 沒先讀 PROGRESS.md** | 阿敦丟一份「宏泰人壽美事傳富 UPG 內訓教材 PDF」，CC 直接當成三信代銷的「美事傳富」實際商品，在 q05/q06 文末加「📄 UPG 內訓教材實證」段 + 改 README。建議 commit & push 前阿敦 grep 才發現 PROGRESS.md 16:35 entry + line 169 早已 verify 「美事傳富 = 新光美鴻世代美元分紅」（不是宏泰 UPG）— 同名不同公司商品。**所有改動 git restore 撤回**，未 commit、未 push。教訓：fresh session 進專案的第一個 read 必為 PROGRESS.md，協議寫了卻沒做。|
+
 ---
 
 ## Plan Status
@@ -173,4 +179,4 @@
 
 ---
 
-**最後更新**：2026-05-13 17:50（initial commit）
+**最後更新**：2026-05-14 08:36（[VIOLATION] entry: 沒先讀 SSOT 誤把宏泰 UPG 當三信美事傳富）
